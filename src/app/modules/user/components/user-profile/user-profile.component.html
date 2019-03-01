@@ -1,0 +1,40 @@
+<ng-container>
+  <div class="section user-profile-wrap">
+    <div class="user-cover" *ngIf="user" [ngStyle]="{
+      'background': 'url(' + user?.cover + ') no-repeat center/cover ', 
+      'height': '400px'}">
+    </div>
+    <div class="user-controls profile-panel justify-content-center">
+      <div class="container d-flex flex-lg-row align-items-center">
+        <div class="profile-section d-flex flex-grow-1 align-items-center">
+          <div  clas='user-avatar-wrapper'>
+            <div  class="user-avatar cur-pointer">
+              <img [src]="user?.avatar" alt="">
+              <div class="user-avatar-overlay justify-content-center pos-absolute "></div>
+            </div>
+          </div>
+          <div class="profile-data d-flex flex-column">
+            <span class="profile-name text-color-dark text-overflow-ellipsis">{{user?.full_name}}</span>
+            <span class="profile-country text-color-gray text-overflow-ellipsis">{{user?.country}}</span>
+          </div>
+          <div class="profile-stats d-flex flex-wrap justify-content-center align-items-end">
+            <span class="stats-points-count d-block w-100 text-center">{{user?.rank.points}}</span>
+            <div class="stats-points-img d-inline-block" ></div>
+            <span class="stats-points-desc text-color-gray text-uppercase">POINTS</span>
+          </div>
+        </div>
+        <nav class="tab-nav tabs-control d-flex align-self-center text-color-gray">
+          <a class = 'tab-name text-uppercase' (click)="activeTab = 'selfies'" [ngClass]="{'active': activeTab == 'selfies'}">selfies</a>
+          <a class = 'tab-name text-uppercase' (click)="activeTab = 'favourites'" [ngClass]="{'active': activeTab == 'favourites'}">favourites</a>
+          <a class = 'tab-name text-uppercase' (click)="activeTab = 'followers'" [ngClass]="{'active': activeTab == 'followers'}">followers</a>
+          <a class = 'tab-name text-uppercase' (click)="activeTab = 'followings'" [ngClass]="{'active': activeTab == 'followings'}">followings</a>
+        </nav>
+      </div>
+    </div>
+    <div class="user-tab-content">
+      <app-user-profile-images [idProfile]='userProfileId' [idActive]='activeUser' *ngIf="activeTab == 'selfies'"></app-user-profile-images>
+      <app-user-profile-favourites *ngIf="activeTab == 'favourites'"></app-user-profile-favourites>
+      <app-user-profile-follows *ngIf="activeTab == 'followers' || activeTab == 'followings'"></app-user-profile-follows>
+    </div>
+  </div>
+</ng-container>

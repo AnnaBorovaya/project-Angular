@@ -1,0 +1,24 @@
+a.tab-name:hover {
+    cursor: pointer;
+    color: #7303c0;
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+a.tab-name {
+    padding: 25px 20px;
+    font-size: 14px;
+}
+
+.images-wrap{
+    padding-top: 50px;
+    background-color: rgb(242, 242, 242);
+}
+nav {
+    box-shadow: 0 5px 5px 2px rgba(0,0,0,.25);
+    background-color: white;
+}
+.messageChallenge{
+    font-family: 'Mr De Haviland', cursive;
+    font-size: 70px;
+    color:black;
+}

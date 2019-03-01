@@ -1,0 +1,17 @@
+.header {
+    padding: 19px 0;
+    color: #fff;
+    background-color: #212121;
+}
+
+.header-nav a {
+    color: white;
+    font-size: 16px;
+    margin-right: 40px;
+    font-weight: 200;
+    text-decoration: none;
+    
+}
+.header-nav a:hover {
+    color: #e12ebc;
+}

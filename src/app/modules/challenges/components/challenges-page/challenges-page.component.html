@@ -1,0 +1,17 @@
+<nav class="tab-nav tabs-control d-flex align-self-center text-color-gray justify-content-center ">
+  <a class = 'tab-name text-uppercase' (click)="getOpenChallenge()" >Open</a>
+  <a class = 'tab-name text-uppercase' (click)="getClosedChallenge()" >Closed</a>
+  <a class = 'tab-name text-uppercase' (click)="getUmcomingChallenge()" >Umcoming</a>
+</nav>
+
+<div class="images-wrap">
+    <div class="container">
+        <p *ngIf='messageChallenge' class="messageChallenge text-center"> There is no challemges yet</p>
+        <div class="row">
+            <div class="col-4 col" *ngFor='let challengeItem of challengeItems'>
+              <app-challenges-item [challengeItemSingle]='challengeItem'  [visibleUpcomingOverlay]='visibleUpcomingOverlay' [visibleOpenOverlay]='visibleOpenOverlay' [visibleClosedOverlay]='visibleClosedOverlay' ></app-challenges-item>
+            </div>
+        </div>
+    </div>
+</div>
+       

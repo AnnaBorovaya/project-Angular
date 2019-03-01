@@ -1,0 +1,5 @@
+<ng-container *ngIf="authUserId">
+    <app-header [authUserId]="authUserId"></app-header>
+</ng-container>
+<p-toast position="top-left"></p-toast>
+<router-outlet></router-outlet>
