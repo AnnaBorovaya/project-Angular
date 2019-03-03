@@ -11,7 +11,7 @@ import { ImagesChallenges } from '../../interfaces/images-challenges';
 })
 export class ChallengesPageComponent implements OnInit {
   public challengeItems: ImagesChallenges[];
-  public messageChallenge = false;
+  public messageChallenge = true;
   public visibleUpcomingOverlay = false;
   public visibleOpenOverlay = true;
   public visibleClosedOverlay = false;
@@ -24,7 +24,8 @@ export class ChallengesPageComponent implements OnInit {
   ngOnInit() {
     this.challengesService.getChallengeOpen().subscribe((data: ImagesChallenges[]) => {
       if (!data.length) {
-        this.messageChallenge = true;
+        this.challengeItems = data;
+        return;
       }
       this.challengeItems = data;
       this.messageChallenge = false;
@@ -36,7 +37,9 @@ export class ChallengesPageComponent implements OnInit {
   getOpenChallenge() {
     this.challengesService.getChallengeOpen().subscribe((data: ImagesChallenges[]) => {
       if (!data.length) {
+        this.challengeItems = data;
         this.messageChallenge = true;
+        return;
       }
       this.challengeItems = data;
       this.messageChallenge = false;
@@ -51,7 +54,9 @@ export class ChallengesPageComponent implements OnInit {
   getClosedChallenge() {
     this.challengesService.getChallengeClosed().subscribe((data: ImagesChallenges[]) => {
       if (!data.length) {
+        this.challengeItems = data;
         this.messageChallenge = true;
+        return;
       }
       this.challengeItems = data;
       this.messageChallenge = false;
@@ -66,7 +71,9 @@ export class ChallengesPageComponent implements OnInit {
   getUmcomingChallenge() {
     this.challengesService.getChallengeUpcoming().subscribe((data: ImagesChallenges[]) => {
       if (!data.length) {
+        this.challengeItems = data;
         this.messageChallenge = true;
+        return;
       }
       this.challengeItems = data;
       this.messageChallenge = false;

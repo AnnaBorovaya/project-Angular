@@ -18,7 +18,7 @@ export class ChallengesItemComponent implements OnInit {
   @Input() visibleUpcomingOverlay: boolean;
   @Input() visibleOpenOverlay: boolean;
   @Input() visibleClosedOverlay: boolean;
-  private endDate;
+  public endDate;
   private countAwards;
   private countVotes;
   constructor(

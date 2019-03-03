@@ -5,19 +5,19 @@
         <div>
             <div  class="item-overlay d-flex flex-column pos-absolute ng-star-inserted">
                 <div *ngIf='visibleUpcomingOverlay'  class="item-info d-flex justify-content-between flex-shrink-0 text-uppercase">
-                    <div _ngcontent-c16="" class="awards d-flex flex-column justify-content-end">
-                        <span _ngcontent-c16="" class="count">{{countAwards | awards}}</span>
-                        <span _ngcontent-c16="" class="desc text-overflow-ellipsis">Awards worth</span>
+                    <div class="awards d-flex flex-column justify-content-end">
+                        <span class="count">{{countAwards | awards}}</span>
+                        <span class="desc text-overflow-ellipsis">Awards worth</span>
                     </div>
                     <div _ngcontent-c16="" class="votes d-flex flex-column justify-content-end">
-                        <i _ngcontent-c16="" class="fa-icon far fa-clock"></i>
-                        <span _ngcontent-c16="" class="desc text-overflow-ellipsis">Coming soon</span>
+                        <i  class="fa-icon far fa-clock"></i>
+                        <span  class="desc text-overflow-ellipsis">Coming soon</span>
                     </div>
                 </div>
                 <div *ngIf='visibleOpenOverlay' class="item-overlay d-flex flex-column pos-absolute ng-star-inserted">
                     <div class="item-button d-flex justify-content-center align-items-center overflow-hidden transition">
                         <button class="btn btn-transparent btn-sm ng-star-inserted">
-                            <span  class="btn-wrapper"><span _ngcontent-c16="">Join challenge</span></span>
+                            <span  class="btn-wrapper"><span>Join challenge</span></span>
                         </button>
                     </div>
                     <div class="item-info d-flex flex-shrink-0 text-uppercase">
@@ -27,8 +27,7 @@
                         </div>
                         <div class="days borders d-flex flex-column justify-content-end">
                             <span  class="count ng-star-inserted" style="font-size: 20px;">
-                                <!--app-countdown-->
-                                <p *appCountdown="endDate">{{display}}</p>
+                                <p *appCountdown="endDate"></p><!--app-countdown-->
                             </span>
                             <span  class="desc text-overflow-ellipsis">Days left</span>
                         </div>
@@ -45,10 +44,6 @@
                             <span  class="desc text-overflow-ellipsis">Awards worth</span>
                         </div>
                         <div class="days borders d-flex flex-column justify-content-end">
-                            <span  class="count ng-star-inserted" style="font-size: 20px;">
-                                <!--app-countdown-->
-                                <p *appCountdown="endDate">{{display}}</p>
-                            </span>
                             <span class="desc text-overflow-ellipsis">FEB 28, 2019</span>
                         </div>
                         <div  class="votes d-flex flex-column justify-content-end">
