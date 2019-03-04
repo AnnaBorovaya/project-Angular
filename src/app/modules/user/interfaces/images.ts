@@ -5,4 +5,5 @@ export interface Images {
   url: string;
   views: Array<string>;
   _id: string;
+  owner?: any;
 }
