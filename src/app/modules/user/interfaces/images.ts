@@ -6,4 +6,7 @@ export interface Images {
   views: Array<string>;
   _id: string;
   owner?: any;
+  title?:string;
+  description?:string;
+  comments?:string;
 }
