@@ -11,7 +11,7 @@
                 <div class="img-wrap" (click)='onClickPhotos(img._id)'>
                     <img [src]="img.url" alt=""> 
                     <div class="on-hover d-flex flex-column justify-content-between">
-                        <div class="remove-wrap d-flex">
+                        <div class="remove-wrap d-flex" (click) = 'handlerDeletePhoto($event, img)'>
                             <i class="fas fa-trash-alt ml-auto trash"></i>
                         </div>
                         <div class="img-info d-flex align-items-center">

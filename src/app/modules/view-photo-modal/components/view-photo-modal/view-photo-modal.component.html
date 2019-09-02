@@ -37,11 +37,37 @@
               <img [src]="imageSingle?.url" alt="" data-id-modal-img=''>
           </div>
           <!-- /.current-image -->
-          <div class="current-image-comments-wrap mt-3"></div>
+          <form  #addInfo='ngForm' class="mt-3">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Title</label>
+                <input *ngIf='inputActive || imageSingle?.title === ""' [(ngModel)]='info.title' name='title' type="text" class="form-control form-control-sm" id="inputEmail4" placeholder="Title">
+                <p *ngIf='!inputActive && imageSingle?.title !== ""' [textContent]='imageSingle?.title'></p>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Description</label>
+                <input *ngIf='inputActive || imageSingle?.description === ""' [(ngModel)]='info.description' name='description' type="text" class="form-control form-control-sm" id="inputPassword4" placeholder="Description">
+                <p *ngIf='!inputActive && imageSingle?.description !== ""'>{{imageSingle?.description}}</p>
+              </div>
+            </div>
+            <button (click)='onSubmitHandler(imageSingle)' *ngIf='inputActive' class='btn btn-sm btn-warning'>Submit</button>
+            <button (click)='onChangeHandler(imageSingle)' *ngIf='!inputActive' class='btn btn-sm btn-info'>Change</button>
+          </form>
+    
+          <div class="current-image-comments-wrap mt-3">
+            <ul>
+              <li class='comment_single d-flex' *ngFor='let singleComment of imageSingle?.comments'>
+                {{singleComment.text}}
+                <div class="remove-wrap d-flex" (click) = 'handlerDeleteComment(singleComment?._id, imageSingle._id)'>
+                    <i class="fas fa-trash-alt ml-auto trash"></i>
+                </div>
+              </li>
+            </ul>
+          </div>
           <!-- /.current-image-comments-wrap -->
           <div class="add-comment-form mt-4">
-            <form class='form-comment'>
-                <input type="text" name="comment" id="comment" placeholder="Write a comment" class="form-control form-control-sm comment">
+            <form (ngSubmit)='addCommentHandler(statusForm, imageSingle._id)' #statusForm='ngForm' class='form-comment'>
+                <input  [(ngModel)]='comment' name='comment' type="text" name="comment" id="comment" placeholder="Write a comment" class="form-control form-control-sm comment">
                 <button type="submit" class="btn btn-primary btn-sm mt-3 check">Submit</button>
                 <button type="reset" class="btn btn-warning btn-sm mt-3 invisible chancel">Chancel</button>
             </form>

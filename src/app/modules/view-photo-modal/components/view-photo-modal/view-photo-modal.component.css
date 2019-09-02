@@ -58,3 +58,13 @@ a.author-name{
 .stats-desc{
     font-size: 14px;
 }
+.comment_single{
+    background-color: beige;
+    padding: 20px;
+    margin: 5px 0;
+    justify-content: space-between;
+}
+.current-image-comments-wrap{
+    max-height: 200px;
+    overflow: scroll;
+}

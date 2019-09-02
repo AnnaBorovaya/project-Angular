@@ -17,7 +17,8 @@ import { ViewPhotoModalModule} from './../view-photo-modal/view-photo-modal.modu
     CommonModule,
     UserRoutingModule,
     UploadPhotosModule,
-    ViewPhotoModalModule
+    ViewPhotoModalModule,
+
   ],
   providers: [UserService]
 })

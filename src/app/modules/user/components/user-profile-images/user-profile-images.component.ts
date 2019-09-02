@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Images } from '../../interfaces/images';
+import { HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-user-profile-images',
@@ -41,5 +43,15 @@ export class UserProfileImagesComponent implements OnInit {
   onClickPhotos(data) {
     this.viewPhotosModalOpened = true;
     this.idImages = data;
+  }
+
+  handlerDeletePhoto(e, img) {
+    e.stopPropagation();
+    const urlImg = img.url;
+    const indexUrlImg = urlImg.indexOf('users-photos');
+    const url = urlImg.slice(indexUrlImg);
+    this.userService.deleteImg(url, img._id, this.idProfile).subscribe((images: any) => {
+      this.getImages();
+    });
   }
 }

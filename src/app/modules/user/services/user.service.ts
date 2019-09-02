@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { environment } from './../../../../environments/environment';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { retry, map } from 'rxjs/operators';
 import { Images } from '../interfaces/images';
+
 
 @Injectable()
 export class UserService {
   private apiUrl: string = environment.apiUrl;
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
   /**
    * getUserInfo - получение информации от сервера о Usere
    */
@@ -28,5 +29,15 @@ export class UserService {
           return data.images;
       })
     );
+  }
+
+  public deleteImg(url: string, idImg: string, idProfile: string): any {
+    const options = {
+    body: {
+      image_id: idImg,
+      image_url: url
+      }
+    };
+    return this.http.request('delete', `${this.apiUrl}/public/users/remove-photo/${idProfile}`, options);
   }
 }

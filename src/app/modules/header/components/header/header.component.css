@@ -15,3 +15,43 @@
 .header-nav a:hover {
     color: #e12ebc;
 }
+
+.left-part-header {
+    margin-left: auto;
+}
+
+.search-result {
+    position: absolute;
+    width: 70%;
+    min-width: 300px;
+    max-width: 1000px;
+    padding: 0 100px;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: #fff;
+}
+
+.item-search {
+    background-color:  #e12ebc;
+    /*margin: 5px 0;*/
+    padding: 10px;
+}
+
+.item-search + .item-search {
+    margin-top: 10px;
+}
+
+.header {
+    position: relative;
+}
+
+.owner-info .owner-avatar {
+    width: 70px;
+    height: 70px;
+    margin-right: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+

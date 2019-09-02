@@ -10,5 +10,30 @@
         <li class="ml-3"><a routerLink="">News</a></li>
       </ul>
     </nav>
+    <div class='left-part-header d-flex'>
+      <div>
+        <form (ngSubmit)='searchHundler(statusSearch)'  class="form-inline my-2 ml-auto my-lg-0 form-search-user">
+            <input [(ngModel)]="search" name="search" class="form-control mr-sm-2 input-search-user" type="search" placeholder="Search" aria-label="Search">
+          </form>
+      </div>
+      <div *ngIf='emptyUserAcrive' class="search-result empty-user">
+        <span>Поиск не дал результатов</span>
+      </div>
+      <div class='search-result'>
+        <div class="item-search" *ngFor = 'let userSearch of searchResult'>
+            <div class="owner-info d-flex align-items-center data-search-user-id=${_id}">
+                <div class="owner-avatar">
+                    <img [src]="userSearch.avatar" alt="">
+                </div>
+                <!-- /.owner-avatar -->
+                <div class="d-flex flex-column">
+                    <span class="search-user-name font-weight-bold">{{userSearch.full_name}}</span>
+                    <span class='search-user-city'>{{userSearch.city}}</span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <button (click)='handlerLogOut()' class="btn btn-outline-danger ml-2 btn-logout">Logout</button>
+    </div>
   </div>
 </div>
