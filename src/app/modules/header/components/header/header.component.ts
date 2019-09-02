@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiseService } from '../../services/servise.service';
-import { Header } from '../../interfaces/header';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit {
   
   @Input() authUserId: string;
   public search = '';
-  public searchResult: Header;
+  public searchResult = null
 
   public emptyUserAcrive = false;
   constructor(
@@ -32,7 +31,7 @@ export class HeaderComponent implements OnInit {
     if (this.search === '') return;
     this.headerModalService.getSearchUser(this.search).subscribe((data) => {
       this.searchResult = data;
-      if (!this.searchResult) {
+      if (!this.searchResult.length) {
         this.emptyUserAcrive = true;
       }
     });
