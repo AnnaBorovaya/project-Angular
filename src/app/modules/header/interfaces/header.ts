@@ -1,3 +1,3 @@
 export interface Header {
-    statusSearch?: Array<string>;
+    statusSearch?: Array<string> ;
   }

@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   handlerLogOut(){
-    console.log('gbf');
     localStorage.clear();
     this.router.navigate(['/auth/login']);
   }
